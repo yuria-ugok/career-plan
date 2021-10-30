@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>キャリアプラン</title>
+    <!-- Google Fonts Noto Sans Japaneseより引用 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        scroll-behavior: smooth;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        background-color: #f5f6f4;
+        color: #0c2a46;
+        font-family: 'Noto Sans JP', sans-serif;
+        text-align: center;
+        max-width: 1280px;
+      }
+
+      h1,
+      h2 {
+        letter-spacing: 0.08em;
+      }
+
+      h2,
+      .start,
+      .job_offer {
+        font-size: 28px;
+      }
+
+      img {
+        object-fit: cover;
+      }
+
+      button {
+        background-color: #fff;
+        border-color: #9ca4a5;
+        border-radius: 20px;
+        color: #0c2a46;
+        cursor: pointer;
+        font-size: 25px;
+        letter-spacing: 0.1em;
+        width: 260px;
+        height: 95px;
+      }
+
+      .index {
+        position: relative;
+      }
+
+      .index h1,
+      .index h2,
+      .index button {
+        position: absolute;
+      }
+
+      .index h1 {
+        font-size: 60px;
+        left: 75px;
+        top: 60px;
+      }
+
+      .index h2 {
+        left: 80px;
+        top: 150px;
+      }
+
+      .index button {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 454px;
+      }
+
+      .start,
+      .job_offer {
+        border: none;
+        width: 330px;
+      }
+
+      .start {
+        background-color: #9accab;
+        font-weight: bolder;
+      }
+
+      .occupation h2 {
+        margin: 200px 0 40px;
+      }
+
+      .occupation button {
+        margin: 10px;
+      }
+
+      .result h2 {
+        margin: 190px 0 30px;
+      }
+
+      .result p {
+        font-size: 20px;
+        margin-bottom: 50px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+
+      .job_offer {
+        background-color: #deda6a;
+        margin-top: 50px;
+      }
+
+      .icon-tabler-external-link {
+        vertical-align: -5px;
+        padding-left: 10px;
+      }
+
+      .sns_share h2 {
+        margin: 200px 0 0;
+      }
+
+      footer p {
+        color: #9ca4a5;
+      }
+
+      @media screen and (max-width: 959px) {
+        /* 959px以下に適用されるCSS（タブレット用） */
+      }
+      @media screen and (max-width: 480px) {
+        /* 480px以下に適用されるCSS（スマホ用） */
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <section class="index">
+        <h1>キャリアプラン</h1>
+        <h2>職種から未来を想像しよう</h2>
+        <img src="img/girl.png" width="100%" height="600" />
+        <!-- 「HTMLでbuttonタグを使ってリンクを貼る方法を現役エンジニアが解説【初心者向け】」を参考にした -->
+        <button @click="location.href='#choice'" class="start">START</button>
+      </section>
+      <section class="occupation" id="choice">
+        <h2>職種を選択してください</h2>
+        <!-- 「Vue.jsでクリックイベントを２つ持たせる方法」を参考にした -->
+        <button @click="sales($event); location.href='#result'">
+          {{job_choice[1]}}
+        </button>
+        <button @click="office_work($event); location.href='#result'">
+          {{job_choice[2]}}
+        </button>
+        <button @click="marketing($event); location.href='#result'">
+          {{job_choice[3]}}
+        </button>
+        <button @click="sale($event); location.href='#result'">
+          {{job_choice[4]}}
+        </button>
+        <button @click="web($event); location.href='#result'">
+          {{job_choice[5]}}
+        </button>
+        <button @click="tv_pd($event); location.href='#result'">
+          {{job_choice[6]}}
+        </button>
+        <button @click="accounting($event); location.href='#result'">
+          {{job_choice[7]}}
+        </button>
+        <button @click="finance($event); location.href='#result'">
+          {{job_choice[8]}}
+        </button>
+        <button @click="real_estate($event); location.href='#result'">
+          {{job_choice[9]}}
+        </button>
+        <button @click="system($event); location.href='#result'">
+          {{job_choice[10]}}
+        </button>
+        <button @click="machine($event); location.href='#result'">
+          {{job_choice[11]}}
+        </button>
+        <button @click="chemistry($event); location.href='#result'">
+          {{job_choice[12]}}
+        </button>
+        <button @click="medical($event); location.href='#result'">
+          {{job_choice[13]}}
+        </button>
+        <button @click="nursing($event); location.href='#result'">
+          {{job_choice[14]}}
+        </button>
+        <button @click="architecture($event); location.href='#result'">
+          {{job_choice[15]}}
+        </button>
+        <button @click="transport($event); location.href='#result'">
+          {{job_choice[16]}}
+        </button>
+        <button @click="education($event); location.href='#result'">
+          {{job_choice[17]}}
+        </button>
+        <button @click="civil_officer($event); location.href='#result'">
+          {{job_choice[18]}}
+        </button>
+        <button @click="AFF($event); location.href='#result'">
+          {{job_choice[19]}}
+        </button>
+      </section>
+      <section class="result" id="result">
+        <h2>選択した職種「{{job_choice[num]}}」</h2>
+        <p>{{career_plan}}</p>
+        <div>
+          <img :src="job_pictures[num]" height="400" />
+        </div>
+        <button @click="location.href=Job_board[num]" class="job_offer">
+          求人サイト
+          <!-- Tabler Icons external-linkより引用-->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon-tabler-external-link"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#0c2a46"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5"
+            />
+            <line x1="10" y1="14" x2="20" y2="4" />
+            <polyline points="15 4 20 4 20 9" />
+          </svg>
+        </button>
+      </section>
+      <section class="sns_share">
+        <h2>SNSでシェア</h2>
+        <a
+          href="https://twitter.com/intent/tweet?text=+https%3A%2F%2Fyuria-ugok.github.io/tasty-tag%2F"
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+          ><img src="img/twitter-fill.svg" class="twitter"
+        /></a>
+        <a
+          href="http://www.facebook.com/sharer/sharer.php?u=https://yuria-ugok.github.io/tasty-tag/"
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+          ><img src="img/facebook-circle-fill.svg" class="facebook"
+        /></a>
+        <a
+          href="https://social-plugins.line.me/lineit/share?url=https://yuria-ugok.github.io/tasty-tag/"
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+          ><img src="img/line-fill.svg" class="line"
+        /></a>
+      </section>
+    </main>
+    <footer>
+      <p>@yuria_ugok</p>
+    </footer>
+    <script src="https://unpkg.com/petite-vue"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
