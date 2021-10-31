@@ -14,8 +14,8 @@
     <style>
       * {
         scroll-behavior: smooth;
-        padding: 0;
         margin: 0;
+        padding: 0;
       }
 
       body {
@@ -49,35 +49,32 @@
         cursor: pointer;
         font-size: 25px;
         letter-spacing: 0.1em;
+        transition: 0.3s;
         width: 260px;
         height: 95px;
       }
 
-      .index {
+      .index,
+      .result {
         position: relative;
       }
 
       .index h1,
       .index h2,
-      .index button {
+      .index button,
+      .back_btn {
         position: absolute;
       }
 
       .index h1 {
         font-size: 60px;
-        left: 75px;
         top: 60px;
+        left: 75px;
       }
 
       .index h2 {
-        left: 80px;
         top: 150px;
-      }
-
-      .index button {
-        left: 50%;
-        transform: translateX(-50%);
-        top: 454px;
+        left: 80px;
       }
 
       .start,
@@ -89,6 +86,13 @@
       .start {
         background-color: #9accab;
         font-weight: bolder;
+        top: 454px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .start:hover {
+        background-color: #8ab799;
       }
 
       .occupation h2 {
@@ -97,6 +101,10 @@
 
       .occupation button {
         margin: 10px;
+      }
+
+      .occupation button:hover {
+        background-color: rgba(222, 218, 106, 0.7);
       }
 
       .result h2 {
@@ -110,14 +118,53 @@
         word-wrap: break-word;
       }
 
+      /* 「【保存版】CSSのみのボタンデザイン – 私が現場で使ってきたボタンアイデア30選
+      背景色のページトップへ戻るボタン」より引用 */
+      .back_btn {
+        align-items: center;
+        background-color: rgba(154, 204, 171, 0.7);
+        border: none;
+        border-radius: 50vh;
+        display: flex;
+        justify-content: center;
+        margin-right: 30px;
+        top: 65%;
+        right: 0;
+        width: 80px;
+        height: 80px;
+      }
+
+      .back_btn::after {
+        border-top: 3px solid #0c2a46;
+        border-left: 3px solid #0c2a46;
+        content: '';
+        transform: rotate(45deg);
+        width: 7px;
+        height: 7px;
+      }
+
+      .back_btn:hover {
+        background-color: #0c2a46;
+      }
+
+      .back_btn:hover::after {
+        border-top: 3px solid #f5f6f4;
+        border-left: 3px solid #f5f6f4;
+      }
+      /* ここまで */
+
       .job_offer {
         background-color: #deda6a;
         margin-top: 50px;
       }
 
+      .job_offer:hover {
+        background-color: #c7c45f;
+      }
+
       .icon-tabler-external-link {
-        vertical-align: -5px;
         padding-left: 10px;
+        vertical-align: -5px;
       }
 
       .sns_share h2 {
@@ -211,6 +258,8 @@
         <div>
           <img :src="job_pictures[num]" height="400" />
         </div>
+        <!-- 「HTMLで「戻るボタン」を作る方法を解説！」を参考にした -->
+        <button @click="history.back()" class="back_btn"></button>
         <button @click="location.href=Job_board[num]" class="job_offer">
           求人サイト
           <!-- Tabler Icons external-linkより引用-->
